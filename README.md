@@ -70,7 +70,7 @@ MEMORY
 3. Project này được build và flash vào vùng nhớ flash bắt đầu từ địa chỉ **`0x08004000`** (cần cấu hình đúng địa chỉ này trong linker script `.ld` của project, mục `FLASH` origin).
 3. Flash bootloader vào board qua ST-Link:
    ```bash
-   st-flash write Bootloader/Debug/Firmware_update_uart.bin 0x08004000
+   st-flash write Firmware_update_uart/Debug/Firmware_update_uart.bin 0x08004000
    ```
    (hoặc dùng nút Run/Debug trực tiếp trong STM32CubeIDE)
 
