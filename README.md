@@ -49,7 +49,7 @@ MEMORY
 }
 ```
 
-> Lưu ý: cần sửa đúng giá trị `ORIGIN` và `LENGTH` trong mục `FLASH` của file `.ld`, không sửa nhầm vùng `RAM`. Sau khi sửa `.ld`, build lại project để file `.bin` xuất ra đúng được định vị tại địa chỉ flash mong muốn.
+> Lưu ý: cần sửa đúng giá trị `ORIGIN` và `LENGTH` trong mục `FLASH` của file `.ld`, không sửa nhầm vùng `RAM`. Sau khi sửa `.ld`, build lại project để file `.bin` xuất ra đúng được định vị tại địa chỉ flash mong muốn. Các firmware cần update khi build ra file bin thì cấu hình trong file linker script `.ld` là `ORIGIN = 0x08008000, LENGTH = 16K` còn Bootloader và Firmware_update_uart đã flash vào board từ trước
 
 ## Cách sử dụng
 
@@ -70,7 +70,7 @@ MEMORY
 3. Project này được build và flash vào vùng nhớ flash bắt đầu từ địa chỉ **`0x08004000`** (cần cấu hình đúng địa chỉ này trong linker script `.ld` của project, mục `FLASH` origin).
 3. Flash bootloader vào board qua ST-Link:
    ```bash
-   st-flash write Bootloader/Debug/Firmware_update_uart.bin 0x08008000
+   st-flash write Bootloader/Debug/Firmware_update_uart.bin 0x08004000
    ```
    (hoặc dùng nút Run/Debug trực tiếp trong STM32CubeIDE)
 
